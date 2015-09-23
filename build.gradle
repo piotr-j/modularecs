@@ -22,6 +22,7 @@ allprojects {
         aiVersion = '1.5.0'
         visUiVersion = '0.8.1'
         artemisVersion = '0.13.1'
+        modularVersion = '1.0'
     }
 
     repositories {
@@ -63,6 +64,21 @@ project(":core") {
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
         compile "com.kotcrab.vis:vis-ui:$visUiVersion"
         compile "net.onedaybeard.artemis:artemis-odb:$artemisVersion"
+    }
+}
+
+project(":plugin") {
+    apply plugin: "java"
+
+
+    dependencies {
+        compile "com.badlogicgames.gdx:gdx:$gdxVersion"
+        compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+        compile "com.badlogicgames.gdx:gdx-ai:$aiVersion"
+        compile "com.badlogicgames.gdx:gdx-controllers:$gdxVersion"
+        compile "com.kotcrab.vis:vis-ui:$visUiVersion"
+        compile "net.onedaybeard.artemis:artemis-odb:$artemisVersion"
+        compile "net.mountainblade:modular:$modularVersion"
     }
 }
 
