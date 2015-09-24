@@ -1,1 +1,1 @@
-include 'desktop', 'android', 'core', 'plugin', 'plugin-api'
+include 'desktop', 'android', 'core', 'plugin', 'plugin2', 'plugin-api'

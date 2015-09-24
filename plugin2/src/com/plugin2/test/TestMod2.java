@@ -1,4 +1,4 @@
-package com.plugin.test;
+package com.plugin2.test;
 
 import com.artemis.WorldConfiguration;
 import com.badlogic.gdx.Gdx;
@@ -8,11 +8,11 @@ import net.mountainblade.modular.annotations.Implementation;
 /**
  * Created by PiotrJ on 24/09/15.
  */
-@Implementation(authors = "PiotrJ", version = "0.1")
-public class TestMod implements GameMod {
-	private final static String TAG = TestMod.class.getSimpleName();
+@Implementation(authors = "PiotrJ", version = "0.12")
+public class TestMod2 implements GameMod {
+	private final static String TAG = TestMod2.class.getSimpleName();
 
-	public TestMod () {
+	public TestMod2 () {
 
 	}
 

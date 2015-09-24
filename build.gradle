@@ -82,6 +82,20 @@ project(":core") {
 project(":plugin") {
     apply plugin: "java"
 
+    dependencies {
+        compile project(":plugin-api")
+        compile "com.badlogicgames.gdx:gdx:$gdxVersion"
+        compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+        compile "com.badlogicgames.gdx:gdx-ai:$aiVersion"
+        compile "com.badlogicgames.gdx:gdx-controllers:$gdxVersion"
+        compile "com.kotcrab.vis:vis-ui:$visUiVersion"
+        compile "net.onedaybeard.artemis:artemis-odb:$artemisVersion"
+        compile "net.mountainblade:modular:$modularVersion"
+    }
+}
+
+project(":plugin2") {
+    apply plugin: "java"
 
     dependencies {
         compile project(":plugin-api")
