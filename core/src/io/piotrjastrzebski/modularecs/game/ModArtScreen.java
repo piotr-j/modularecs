@@ -12,11 +12,13 @@ import java.net.URI;
 import java.util.Collection;
 
 /**
+ * TODO
  * What do we want from plugins?
  * - custom components
  * - custom systems
  * - injection of existing stuff
  * - hotish reloading
+ * - assets from jar
  * nice to have
  * - override existing systems? a lot o problems with that
  * - sand box plugins, not net access, file write etc
