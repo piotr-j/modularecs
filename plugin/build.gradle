@@ -28,6 +28,12 @@ task dist(type: Jar) {
     }
 }
 
+task deployPlugin(type: Copy) {
+    dependsOn dist
+    from 'build/libs/'
+    into '../android/assets/plugins/'
+}
+
 dist.dependsOn classes
 
 eclipse {
