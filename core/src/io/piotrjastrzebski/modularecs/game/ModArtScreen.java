@@ -4,6 +4,7 @@ import com.artemis.BaseSystem;
 import com.artemis.WorldConfiguration;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Array;
+import io.piotrjastrzebski.modularecs.GameMods;
 import io.piotrjastrzebski.modularecs.GameScreen;
 import io.piotrjastrzebski.modularecs.ModularECSGame;
 import io.piotrjastrzebski.modularecs.plugin.api.GameMod;
@@ -30,17 +31,17 @@ import java.util.Collection;
 public class ModArtScreen extends GameScreen {
 	private final static String TAG = ModArtScreen.class.getSimpleName();
 
-	private Array<GameMod> mods;
-
-	public ModArtScreen (ModularECSGame game, Array<GameMod> mods) {
+	public ModArtScreen (ModularECSGame game, GameMods mods) {
 		super(game, mods);
 	}
 
 	@Override protected void preInit (WorldConfiguration config, Object... extra) {
 		// this is mods that was passed in constructor
-		mods = (Array<GameMod>)extra[0];
-		for (GameMod mod : mods) {
-			mod.initialize(config);
+		GameMods mods = (GameMods)extra[0];
+		for (GameMods.Entry entry : mods) {
+			if (entry.enabled) {
+				entry.mod.initialize(config);
+			}
 		}
 	}
 
