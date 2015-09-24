@@ -6,7 +6,7 @@ import com.artemis.utils.ImmutableBag;
 import com.badlogic.gdx.utils.Array;
 import io.piotrjastrzebski.modularecs.interfaces.Input;
 import io.piotrjastrzebski.modularecs.interfaces.Resizing;
-import io.piotrjastrzebski.modularecs.shared.Constants;
+import io.piotrjastrzebski.modularecs.plugin.api.Constants;
 
 import java.util.Comparator;
 

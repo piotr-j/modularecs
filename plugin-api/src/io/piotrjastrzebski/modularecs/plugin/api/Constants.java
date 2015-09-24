@@ -1,4 +1,4 @@
-package io.piotrjastrzebski.modularecs.shared;
+package io.piotrjastrzebski.modularecs.plugin.api;
 
 /**
  * Created by PiotrJ on 24/09/15.

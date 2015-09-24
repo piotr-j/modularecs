@@ -1,0 +1,44 @@
+apply plugin: "java"
+
+sourceCompatibility = 1.7
+sourceSets.main.java.srcDirs = [ "src/" ]
+
+project.ext.mainClassName = ""
+
+task run(dependsOn: classes, type: JavaExec) {
+//    main = project.mainClassName
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    ignoreExitValue = true
+}
+
+task dist(type: Jar) {
+    // what do we want in here?
+    from files(sourceSets.main.output.classesDir)
+    // exclude interfaces so they are not duplicated
+//    exclude('io/piotrjastrzebski/**')
+    from files(sourceSets.main.output.resourcesDir)
+
+    manifest {
+        attributes 'Main-Class': project.mainClassName
+    }
+}
+
+dist.dependsOn classes
+
+eclipse {
+    project {
+        name = appName + "-plugin"
+    }
+}
+
+task afterEclipseImport(description: "Post processing after project generation", group: "IDE") {
+  doLast {
+    def classpath = new XmlParser().parse(file(".classpath"))
+    new Node(classpath, "classpathentry", [ kind: 'src', path: 'assets' ]);
+    def writer = new FileWriter(file(".classpath"))
+    def printer = new XmlNodePrinter(new PrintWriter(writer))
+    printer.setPreserveWhitespace(true)
+    printer.print(classpath)
+  }
+}

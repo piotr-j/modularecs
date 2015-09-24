@@ -13,7 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.kotcrab.vis.ui.widget.VisTable;
-import io.piotrjastrzebski.modularecs.shared.Constants;
+import io.piotrjastrzebski.modularecs.plugin.api.Constants;
 
 /**
  * Created by EvilEntity on 07/06/2015.

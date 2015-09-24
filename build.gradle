@@ -57,10 +57,21 @@ project(":android") {
     }
 }
 
+project(":plugin-api") {
+    apply plugin: "java"
+
+    dependencies {
+        compile "com.badlogicgames.gdx:gdx:$gdxVersion"
+        compile "net.onedaybeard.artemis:artemis-odb:$artemisVersion"
+        compile "net.mountainblade:modular:$modularVersion"
+    }
+}
+
 project(":core") {
     apply plugin: "java"
 
     dependencies {
+        compile project(":plugin-api")
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
         compile "com.kotcrab.vis:vis-ui:$visUiVersion"
         compile "net.onedaybeard.artemis:artemis-odb:$artemisVersion"
@@ -73,6 +84,7 @@ project(":plugin") {
 
 
     dependencies {
+        compile project(":plugin-api")
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-ai:$aiVersion"
