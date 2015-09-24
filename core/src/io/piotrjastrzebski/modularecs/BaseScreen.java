@@ -13,17 +13,13 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.kotcrab.vis.ui.widget.VisTable;
+import io.piotrjastrzebski.modularecs.shared.Constants;
 
 /**
  * Created by EvilEntity on 07/06/2015.
  */
 public abstract class BaseScreen implements Screen, InputProcessor {
 	private final static String TAG = BaseScreen.class.getSimpleName();
-
-	public final static float SCALE = 32f;
-	public final static float INV_SCALE = 1f/SCALE;
-	public final static float VP_WIDTH = 1280 * INV_SCALE;
-	public final static float VP_HEIGHT = 720 * INV_SCALE;
 
 	protected OrthographicCamera gameCamera;
 	protected OrthographicCamera guiCamera;
@@ -44,7 +40,7 @@ public abstract class BaseScreen implements Screen, InputProcessor {
 		this.game = game;
 
 		gameCamera = new OrthographicCamera();
-		gameViewport = new ExtendViewport(VP_WIDTH, VP_HEIGHT, gameCamera);
+		gameViewport = new ExtendViewport(Constants.VP_WIDTH, Constants.VP_HEIGHT, gameCamera);
 		guiCamera = new OrthographicCamera();
 		guiViewport = new ScreenViewport(guiCamera);
 

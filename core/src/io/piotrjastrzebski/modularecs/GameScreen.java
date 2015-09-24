@@ -6,6 +6,7 @@ import com.artemis.utils.ImmutableBag;
 import com.badlogic.gdx.utils.Array;
 import io.piotrjastrzebski.modularecs.interfaces.Input;
 import io.piotrjastrzebski.modularecs.interfaces.Resizing;
+import io.piotrjastrzebski.modularecs.shared.Constants;
 
 import java.util.Comparator;
 
@@ -15,20 +16,16 @@ import java.util.Comparator;
  * Created by PiotrJ on 04/08/15.
  */
 public abstract class GameScreen extends BaseScreen {
-	public static final String WIRE_GUI_CAM = "gui-cam";
-	public static final String WIRE_GUI_VP = "gui-vp";
-	public static final String WIRE_GAME_CAM = "game-cam";
-	public static final String WIRE_GAME_VP = "game-vp";
 
 	protected World world;
 
 	public GameScreen (ModularECSGame game) {
 		super(game);
 		WorldConfiguration config = new WorldConfiguration();
-		config.register(WIRE_GUI_CAM, guiCamera);
-		config.register(WIRE_GUI_VP, guiViewport);
-		config.register(WIRE_GAME_CAM, gameCamera);
-		config.register(WIRE_GAME_VP, gameViewport);
+		config.register(Constants.WIRE_GUI_CAM, guiCamera);
+		config.register(Constants.WIRE_GUI_VP, guiViewport);
+		config.register(Constants.WIRE_GAME_CAM, gameCamera);
+		config.register(Constants.WIRE_GAME_VP, gameViewport);
 		config.register(batch);
 		config.register(renderer);
 		config.register(stage);
