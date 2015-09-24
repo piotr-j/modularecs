@@ -19,7 +19,7 @@ public abstract class GameScreen extends BaseScreen {
 
 	protected World world;
 
-	public GameScreen (ModularECSGame game) {
+	public GameScreen (ModularECSGame game, Object... extra) {
 		super(game);
 		WorldConfiguration config = new WorldConfiguration();
 		config.register(Constants.WIRE_GUI_CAM, guiCamera);
@@ -30,7 +30,7 @@ public abstract class GameScreen extends BaseScreen {
 		config.register(renderer);
 		config.register(stage);
 
-		preInit(config);
+		preInit(config, extra);
 		world = new World(config);
 		postInit();
 
@@ -50,12 +50,12 @@ public abstract class GameScreen extends BaseScreen {
 	/**
 	 * Called before world is created, after common objects are added
 	 */
-	protected abstract void preInit (WorldConfiguration config);
+	protected abstract void preInit (WorldConfiguration config, Object... extra);
 
 	/**
 	 * Called after world is created
 	 */
-	protected abstract void postInit ();
+	protected void postInit () {}
 
 	private void input(Array<Input> inputs, ImmutableBag bag) {
 		for (Object object : bag) {
