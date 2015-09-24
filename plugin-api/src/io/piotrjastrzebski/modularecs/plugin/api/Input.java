@@ -1,4 +1,4 @@
-package io.piotrjastrzebski.modularecs.interfaces;
+package io.piotrjastrzebski.modularecs.plugin.api;
 
 import com.badlogic.gdx.InputProcessor;
 

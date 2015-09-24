@@ -1,4 +1,4 @@
-package io.piotrjastrzebski.modularecs.interfaces;
+package io.piotrjastrzebski.modularecs.plugin.api;
 
 /**
  * Created by EvilEntity on 15/08/2015.

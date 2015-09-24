@@ -4,8 +4,8 @@ import com.artemis.World;
 import com.artemis.WorldConfiguration;
 import com.artemis.utils.ImmutableBag;
 import com.badlogic.gdx.utils.Array;
-import io.piotrjastrzebski.modularecs.interfaces.Input;
-import io.piotrjastrzebski.modularecs.interfaces.Resizing;
+import io.piotrjastrzebski.modularecs.plugin.api.Input;
+import io.piotrjastrzebski.modularecs.plugin.api.Resizing;
 import io.piotrjastrzebski.modularecs.plugin.api.Constants;
 
 import java.util.Comparator;
