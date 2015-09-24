@@ -1,18 +1,9 @@
 package io.piotrjastrzebski.modularecs.game;
 
-import com.artemis.BaseSystem;
 import com.artemis.WorldConfiguration;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.utils.Array;
 import io.piotrjastrzebski.modularecs.GameMods;
 import io.piotrjastrzebski.modularecs.GameScreen;
 import io.piotrjastrzebski.modularecs.ModularECSGame;
-import io.piotrjastrzebski.modularecs.plugin.api.GameMod;
-import net.mountainblade.modular.Module;
-import net.mountainblade.modular.impl.DefaultModuleManager;
-
-import java.net.URI;
-import java.util.Collection;
 
 /**
  * TODO
