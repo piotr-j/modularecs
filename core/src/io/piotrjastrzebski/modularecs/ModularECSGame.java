@@ -5,7 +5,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.kotcrab.vis.ui.VisUI;
-import io.piotrjastrzebski.modularecs.game.ModArtScreen;
 
 public class ModularECSGame extends Game {
 	private final PlatformBridge bridge;
@@ -26,7 +25,7 @@ public class ModularECSGame extends Game {
 		}
 		batch = new SpriteBatch();
 		renderer = new ShapeRenderer();
-		setScreen(new ModArtScreen(this));
+		setScreen(new ModSelectScreen(this));
 	}
 
 	public SpriteBatch getBatch () {
