@@ -19,4 +19,20 @@ public class TestMod2 implements GameMod {
 	@Override public void initialize (WorldConfiguration config) {
 		Gdx.app.log(TAG, "initialize!");
 	}
+
+	@Override public String getName () {
+		return "Test mod 2!";
+	}
+
+	@Override public String getDescription () {
+		return "This is second test mod";
+	}
+
+	@Override public String getVersionString () {
+		return "0.12";
+	}
+
+	@Override public int getVersion () {
+		return 1;
+	}
 }

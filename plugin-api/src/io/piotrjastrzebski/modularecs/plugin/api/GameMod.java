@@ -8,4 +8,8 @@ import net.mountainblade.modular.Module;
  */
 public interface GameMod extends Module {
 	public void initialize (WorldConfiguration config);
+	public String getName();
+	public String getDescription();
+	public String getVersionString();
+	public int getVersion();
 }
