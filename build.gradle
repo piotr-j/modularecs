@@ -64,6 +64,7 @@ project(":core") {
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
         compile "com.kotcrab.vis:vis-ui:$visUiVersion"
         compile "net.onedaybeard.artemis:artemis-odb:$artemisVersion"
+        compile "net.mountainblade:modular:$modularVersion"
     }
 }
 
