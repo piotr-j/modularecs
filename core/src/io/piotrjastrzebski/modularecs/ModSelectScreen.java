@@ -14,6 +14,10 @@ public class ModSelectScreen extends BaseScreen {
 		mods = new GameMods();
 		mods.load("plugins/");
 		// TODO add ui
+	}
+
+	@Override public void render (float delta) {
+		super.render(delta);
 		game.setScreen(new ModArtScreen(game, mods));
 	}
 }
