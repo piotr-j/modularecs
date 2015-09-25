@@ -4,6 +4,10 @@ import com.artemis.WorldConfiguration;
 import io.piotrjastrzebski.modularecs.GameMods;
 import io.piotrjastrzebski.modularecs.GameScreen;
 import io.piotrjastrzebski.modularecs.ModularECSGame;
+import io.piotrjastrzebski.modularecs.game.processors.DebugRenderer;
+import io.piotrjastrzebski.modularecs.game.processors.PlayerController;
+import io.piotrjastrzebski.modularecs.game.processors.PlayerMover;
+import io.piotrjastrzebski.modularecs.game.processors.PlayerSpawner;
 
 /**
  * TODO
@@ -27,6 +31,11 @@ public class ModArtScreen extends GameScreen {
 	}
 
 	@Override protected void preInit (WorldConfiguration config, Object... extra) {
+		config.setSystem(new DebugRenderer());
+		config.setSystem(new PlayerSpawner());
+		config.setSystem(new PlayerController());
+		config.setSystem(new PlayerMover());
+
 		// this is mods that was passed in constructor
 		GameMods mods = (GameMods)extra[0];
 		for (GameMods.Entry entry : mods) {
@@ -38,5 +47,9 @@ public class ModArtScreen extends GameScreen {
 
 	@Override protected void postInit () {
 
+	}
+
+	@Override public void render (float delta) {
+		super.render(delta);
 	}
 }
