@@ -20,4 +20,10 @@ public class Transform extends PooledComponent {
 		this.angle = angle;
 		return this;
 	}
+
+	public Transform set (Transform other) {
+		pos.set(other.pos);
+		angle = other.angle;
+		return this;
+	}
 }
