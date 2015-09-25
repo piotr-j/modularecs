@@ -11,7 +11,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import io.piotrjastrzebski.modularecs.plugin.api.components.Bounds;
-import io.piotrjastrzebski.modularecs.game.components.DebugTint;
+import io.piotrjastrzebski.modularecs.plugin.api.components.DebugTint;
 import io.piotrjastrzebski.modularecs.plugin.api.components.Transform;
 import io.piotrjastrzebski.modularecs.plugin.api.Constants;
 

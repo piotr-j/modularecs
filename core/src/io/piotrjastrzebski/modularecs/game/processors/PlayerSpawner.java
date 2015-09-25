@@ -2,11 +2,7 @@ package io.piotrjastrzebski.modularecs.game.processors;
 
 import com.artemis.*;
 import com.badlogic.gdx.Gdx;
-import io.piotrjastrzebski.modularecs.game.components.*;
-import io.piotrjastrzebski.modularecs.plugin.api.components.Bounds;
-import io.piotrjastrzebski.modularecs.plugin.api.components.Health;
-import io.piotrjastrzebski.modularecs.plugin.api.components.Player;
-import io.piotrjastrzebski.modularecs.plugin.api.components.Transform;
+import io.piotrjastrzebski.modularecs.plugin.api.components.*;
 
 /**
  * Created by PiotrJ on 24/09/15.

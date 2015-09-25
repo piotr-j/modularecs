@@ -1,4 +1,4 @@
-package io.piotrjastrzebski.modularecs.game.components;
+package io.piotrjastrzebski.modularecs.plugin.api.components;
 
 import com.artemis.PooledComponent;
 import com.badlogic.gdx.graphics.Color;
