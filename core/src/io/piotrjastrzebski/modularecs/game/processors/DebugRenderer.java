@@ -51,10 +51,8 @@ public class DebugRenderer extends EntityProcessingSystem {
 		float angle = transform.angle;
 		Bounds bounds = mBounds.get(e);
 		Rectangle rect = bounds.rect;
-		// todo rot
 		renderer.rect(pos.x - rect.width / 2, pos.y - rect.height /2,
 			rect.width  / 2, rect.height / 2, rect.width, rect.height, 1, 1, angle);
-//		renderer.rect(pos.x, pos.y, rect.width, rect.height);
 	}
 
 	@Override protected void end () {
