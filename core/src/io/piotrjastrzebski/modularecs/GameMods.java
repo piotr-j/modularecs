@@ -6,7 +6,6 @@ import io.piotrjastrzebski.modularecs.plugin.api.GameMod;
 import net.mountainblade.modular.Module;
 import net.mountainblade.modular.ModuleManager;
 import net.mountainblade.modular.impl.DefaultModuleManager;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.net.URI;
 import java.util.Collection;
@@ -43,6 +42,7 @@ public class GameMods implements Iterable<GameMods.Entry> {
 				Entry entry = new Entry();
 				entry.mod = (GameMod)module;
 				entry.order = entries.size;
+				entry.enabled = true;
 				entries.add(entry);
 			}
 		}
@@ -53,11 +53,11 @@ public class GameMods implements Iterable<GameMods.Entry> {
 	}
 
 	@Override public void forEach (Consumer<? super Entry> action) {
-		throw new NotImplementedException();
+		throw new RuntimeException("Not implemented");
 	}
 
 	@Override public Spliterator<Entry> spliterator () {
-		throw new NotImplementedException();
+		throw new RuntimeException("Not implemented");
 	}
 
 	public static class Entry {
