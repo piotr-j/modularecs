@@ -31,6 +31,8 @@ public class ModArtScreen extends GameScreen {
 	}
 
 	@Override protected void preInit (WorldConfiguration config, Object... extra) {
+		config.setSystem(new Assets());
+		config.setSystem(new BatchRenderer());
 		config.setSystem(new DebugRenderer());
 		config.setSystem(new PlayerSpawner());
 		config.setSystem(new PlayerController());

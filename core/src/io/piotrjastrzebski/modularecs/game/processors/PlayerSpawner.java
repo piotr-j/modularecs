@@ -35,7 +35,7 @@ public class PlayerSpawner extends BaseSystem {
 		edit.create(Transform.class).set(0, 0, 0);
 		edit.create(Health.class).init(10);
 		edit.create(Bounds.class).set(2, 4);
-		edit.create(DebugTint.class).setColor(1, 0, 0);
-		// todo other stuff
+//		edit.create(DebugTint.class).setColor(1, 0, 0);
+		edit.create(AssetRef.class).setPath("hull.png");
 	}
 }
