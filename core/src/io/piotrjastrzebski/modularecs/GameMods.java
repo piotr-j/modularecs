@@ -42,7 +42,6 @@ public class GameMods implements Iterable<GameMods.Entry> {
 				Entry entry = new Entry();
 				entry.mod = (GameMod)module;
 				entry.order = entries.size;
-				entry.enabled = true;
 				entries.add(entry);
 			}
 		}
