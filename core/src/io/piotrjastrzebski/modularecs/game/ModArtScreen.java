@@ -4,10 +4,7 @@ import com.artemis.WorldConfiguration;
 import io.piotrjastrzebski.modularecs.GameMods;
 import io.piotrjastrzebski.modularecs.GameScreen;
 import io.piotrjastrzebski.modularecs.ModularECSGame;
-import io.piotrjastrzebski.modularecs.game.processors.DebugRenderer;
-import io.piotrjastrzebski.modularecs.game.processors.PlayerController;
-import io.piotrjastrzebski.modularecs.game.processors.PlayerMover;
-import io.piotrjastrzebski.modularecs.game.processors.PlayerSpawner;
+import io.piotrjastrzebski.modularecs.game.processors.*;
 
 /**
  * TODO
@@ -35,6 +32,7 @@ public class ModArtScreen extends GameScreen {
 		config.setSystem(new PlayerSpawner());
 		config.setSystem(new PlayerController());
 		config.setSystem(new PlayerMover());
+		config.setInjector(new InterfaceInjector());
 
 		// this is mods that was passed in constructor
 		GameMods mods = (GameMods)extra[0];
