@@ -7,7 +7,7 @@ import net.mountainblade.modular.Module;
 import net.mountainblade.modular.ModuleManager;
 import net.mountainblade.modular.impl.DefaultModuleManager;
 
-import java.net.URI;
+import java.io.File;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Spliterator;
@@ -31,14 +31,14 @@ public class GameMods implements Iterable<GameMods.Entry> {
 	}
 
 	public void load (String path) {
-		load(Gdx.files.internal(path).file().toURI());
+		load(Gdx.files.internal(path).file());
 	}
 
-	private void load(URI uri) {
+	private void load(File file) {
 		// TODO handle errors properly
 		reload();
-		Collection<Module> loaded = modules.loadModules(uri);
-		Gdx.app.log(TAG, "loaded " + loaded.size() + " module(s) from " + uri);
+		Collection<Module> loaded = modules.loadModules(file);
+		Gdx.app.log(TAG, "loaded " + loaded.size() + " module(s) from " + file.getAbsolutePath());
 		for (Module module : loaded) {
 			if (module instanceof GameMod) {
 				Entry entry = new Entry();
