@@ -3,7 +3,7 @@ apply plugin: "java"
 sourceCompatibility = 1.7
 sourceSets.main.java.srcDirs = [ "src/" ]
 
-project.ext.mainClassName = "com.plugin.test.Main"
+project.ext.mainClassName = "com.plugin.test.TurretMod"
 project.ext.assetsDir = new File("assets/");
 
 task run(dependsOn: classes, type: JavaExec) {

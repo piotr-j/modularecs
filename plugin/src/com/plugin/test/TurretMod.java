@@ -12,10 +12,10 @@ import net.mountainblade.modular.annotations.Implementation;
  * Created by PiotrJ on 24/09/15.
  */
 @Implementation(authors = "PiotrJ", version = "0.1")
-public class TestMod implements GameMod {
-	private final static String TAG = TestMod.class.getSimpleName();
+public class TurretMod implements GameMod {
+	private final static String TAG = TurretMod.class.getSimpleName();
 
-	public TestMod () {
+	public TurretMod () {
 
 	}
 
@@ -40,5 +40,9 @@ public class TestMod implements GameMod {
 
 	@Override public int getVersion () {
 		return 1;
+	}
+
+	public static void main (String[] arg) {
+		System.out.println("Dummy main!");
 	}
 }
