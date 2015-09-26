@@ -26,6 +26,7 @@ public class GameMods implements Iterable<GameMods.Entry> {
 		modules = new DefaultModuleManager();
 
 		// TODO why loading raw .class doesnt work? :( fails with shading exception
+		// TODO try with manager.getLoader().setLoadingStrategy(ParentFirstStrategy.class); sometime
 //		loadInternal(mods, "classes/");
 	}
 
