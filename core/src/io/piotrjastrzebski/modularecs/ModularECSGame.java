@@ -8,8 +8,9 @@ import com.kotcrab.vis.ui.VisUI;
 
 public class ModularECSGame extends Game {
 	private final PlatformBridge bridge;
-	SpriteBatch batch;
-	ShapeRenderer renderer;
+	private SpriteBatch batch;
+	private ShapeRenderer renderer;
+	private GameMods mods;
 
 	public ModularECSGame (PlatformBridge bridge) {
 		this.bridge = bridge;
@@ -25,6 +26,7 @@ public class ModularECSGame extends Game {
 		}
 		batch = new SpriteBatch();
 		renderer = new ShapeRenderer();
+		mods = new GameMods();
 		setScreen(new ModSelectScreen(this));
 	}
 
@@ -34,6 +36,10 @@ public class ModularECSGame extends Game {
 
 	public ShapeRenderer getRenderer () {
 		return renderer;
+	}
+
+	public GameMods getMods () {
+		return mods;
 	}
 
 	@Override public void dispose () {

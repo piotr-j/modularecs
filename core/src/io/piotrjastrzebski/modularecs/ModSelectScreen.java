@@ -21,7 +21,7 @@ public class ModSelectScreen extends BaseScreen {
 
 	public ModSelectScreen (final ModularECSGame game) {
 		super(game);
-		mods = new GameMods();
+		mods = game.getMods();
 		mods.load("plugins/");
 
 		VisTable container = new VisTable(true);
