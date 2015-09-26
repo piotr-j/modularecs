@@ -4,6 +4,7 @@ import com.artemis.*;
 import com.artemis.annotations.Wire;
 import com.plugin.test.components.Turret;
 import com.plugin.test.components.TurretRef;
+import io.piotrjastrzebski.modularecs.plugin.api.Constants;
 import io.piotrjastrzebski.modularecs.plugin.api.components.*;
 
 /**
@@ -25,7 +26,8 @@ public class TurretSpawner extends EntitySystem {
 		EntityEdit edit = turret.edit();
 		edit.create(Transform.class).set(transform);
 		edit.create(Bounds.class).set(0.5f, 3f);
-		edit.create(Turret.class).parent(entityId).offset(0, 1.5f);
+		// hardcoded, not great. would be nice if base had attachment points or something
+		edit.create(Turret.class).parent(entityId).offset(0, -24 * Constants.INV_SCALE);
 		edit.create(DebugTint.class).setColor(0, 1, 0);
 
 		world.getEntity(entityId).edit().create(TurretRef.class).ref(turret.id);
