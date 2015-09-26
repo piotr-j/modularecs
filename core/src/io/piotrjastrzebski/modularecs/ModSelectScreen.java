@@ -18,11 +18,11 @@ public class ModSelectScreen extends BaseScreen {
 	private GameMods mods;
 
 	VisTextButton start;
-
+	VisTextButton reload;
+	VisTable modContainer;
 	public ModSelectScreen (final ModularECSGame game) {
 		super(game);
 		mods = game.getMods();
-		mods.load("plugins/");
 
 		VisTable container = new VisTable(true);
 		container.add(start = new VisTextButton("Start!"));
@@ -31,17 +31,31 @@ public class ModSelectScreen extends BaseScreen {
 				game.setScreen(new ModArtScreen(game, mods));
 			}
 		});
+		container.row();
+		container.add(reload = new VisTextButton("(Re)Load!"));
+		reload.addListener(new ClickListener() {
+			@Override public void clicked (InputEvent event, float x, float y) {
+				reload();
+			}
+		});
+		container.row();
+		container.add(modContainer = new VisTable(true));
+		root.add(container).center();
+		reload();
+	}
+
+	private void reload() {
+		mods.load("plugins/");
+		modContainer.clear();
 		for (final GameMods.Entry mod : mods) {
-			container.row();
 			final VisCheckBox ch = new VisCheckBox(mod.mod.getName(), mod.enabled);
 			ch.addListener(new ChangeListener() {
 				@Override public void changed (ChangeEvent event, Actor actor) {
 					mod.enabled = ch.isChecked();
 				}
 			});
-			container.add(ch);
+			modContainer.add(ch).row();
 		}
-		root.add(container).center();
 	}
 
 	@Override public void render (float delta) {

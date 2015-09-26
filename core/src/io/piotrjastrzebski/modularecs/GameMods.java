@@ -35,6 +35,7 @@ public class GameMods implements Iterable<GameMods.Entry> {
 
 	private void load(URI uri) {
 		// TODO handle errors properly
+		reload();
 		Collection<Module> loaded = modules.loadModules(uri);
 		Gdx.app.log(TAG, "loaded " + loaded.size() + " module(s) from " + uri);
 		for (Module module : loaded) {
@@ -45,6 +46,23 @@ public class GameMods implements Iterable<GameMods.Entry> {
 				entries.add(entry);
 			}
 		}
+	}
+
+	Array<Class<? extends Module>> loaded = new Array<>();
+ 	private void reload () {
+		loaded.clear();
+		for (Module module : modules.getRegistry().getModules()) {
+			loaded.add(module.getClass());
+		}
+		if (loaded.size == 0) {
+			Gdx.app.log(TAG, "nothing to reload");
+			return;
+		}
+		modules.shutdown();
+		for (Class<? extends Module> cls : loaded) {
+			modules.loadModule(cls);
+		}
+		Gdx.app.log(TAG, "reloaded " + loaded.size + " module(s)");
 	}
 
 	@Override public Iterator<Entry> iterator () {
