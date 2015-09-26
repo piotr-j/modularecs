@@ -1,8 +1,11 @@
 package io.piotrjastrzebski.modularecs.game;
 
 import com.artemis.WorldConfiguration;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import io.piotrjastrzebski.modularecs.GameMods;
 import io.piotrjastrzebski.modularecs.GameScreen;
+import io.piotrjastrzebski.modularecs.ModSelectScreen;
 import io.piotrjastrzebski.modularecs.ModularECSGame;
 import io.piotrjastrzebski.modularecs.game.processors.*;
 
@@ -46,4 +49,12 @@ public class ModArtScreen extends GameScreen {
 	@Override protected void postInit () {
 
 	}
+
+	@Override public boolean keyDown (int keycode) {
+		if (keycode == Input.Keys.ESCAPE) {
+			game.setScreen(new ModSelectScreen(game));
+		}
+		return false;
+	}
+
 }
