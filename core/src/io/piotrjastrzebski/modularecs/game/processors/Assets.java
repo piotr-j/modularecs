@@ -1,9 +1,6 @@
 package io.piotrjastrzebski.modularecs.game.processors;
 
-import com.artemis.Aspect;
-import com.artemis.ComponentMapper;
-import com.artemis.EntityEdit;
-import com.artemis.EntitySystem;
+import com.artemis.*;
 import com.artemis.annotations.Wire;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
@@ -25,14 +22,13 @@ import java.util.zip.ZipInputStream;
  * Created by EvilEntity on 26/09/2015.
  */
 @Wire
-public class Assets extends EntitySystem {
+public class Assets extends BaseEntitySystem {
 	private ComponentMapper<AssetRef> mAssetRef;
 	private ComponentMapper<Asset> mAsset;
 	AssetManager manager;
 	ObjectMap<String, Texture> textures;
 	public Assets () {
 		super(Aspect.all(AssetRef.class));
-		setPassive(true);
 		// todo make dist work
 		manager = new AssetManager(new JarHandleResolver("plugins/"));
 		textures = new ObjectMap<>();

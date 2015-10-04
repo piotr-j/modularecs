@@ -6,6 +6,7 @@ import com.artemis.Entity;
 import com.artemis.EntitySystem;
 import com.artemis.annotations.Wire;
 import com.artemis.systems.EntityProcessingSystem;
+import com.artemis.systems.IteratingSystem;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -18,7 +19,7 @@ import io.piotrjastrzebski.modularecs.plugin.api.components.Transform;
  * Created by PiotrJ on 25/09/15.
  */
 @Wire
-public class TurretUpdater extends EntityProcessingSystem {
+public class TurretUpdater extends IteratingSystem {
 	protected ComponentMapper<Transform> mTransform;
 	protected ComponentMapper<Turret> mTurret;
 
@@ -30,12 +31,12 @@ public class TurretUpdater extends EntityProcessingSystem {
 
 	}
 
-	@Override protected void process (Entity e) {
-		Turret turret = mTurret.get(e);
+	@Override protected void process (int eid) {
+		Turret turret = mTurret.get(eid);
 		if (turret.parent < 0) return;
 		Entity parent = world.getEntity(turret.parent);
 		if (parent == null) return;
-		Transform tTrans = mTransform.get(e);
+		Transform tTrans = mTransform.get(eid);
 		Transform pTrans = mTransform.get(parent);
 		Vector2 pPos = pTrans.pos;
 

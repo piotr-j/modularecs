@@ -3,6 +3,7 @@ package com.plugin.test.processors;
 import com.artemis.*;
 import com.artemis.annotations.Wire;
 import com.artemis.systems.EntityProcessingSystem;
+import com.artemis.systems.IteratingSystem;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -17,7 +18,7 @@ import io.piotrjastrzebski.modularecs.plugin.api.components.Transform;
  * Created by PiotrJ on 25/09/15.
  */
 @Wire
-public class TurretController extends EntityProcessingSystem implements Input, InputProcessor {
+public class TurretController extends IteratingSystem implements Input, InputProcessor {
 	private final static String TAG = TurretController.class.getSimpleName();
 
 	@Wire(name = Constants.WIRE_GAME_CAM)
@@ -34,8 +35,8 @@ public class TurretController extends EntityProcessingSystem implements Input, I
 	}
 
 	Vector2 angle = new Vector2();
-	@Override protected void process (Entity e) {
-		Transform transform = mTransform.get(e);
+	@Override protected void process (int eid) {
+		Transform transform = mTransform.get(eid);
 		transform.angle = angle.set(transform.pos).sub(tp.x, tp.y).angle() + 90;
 	}
 

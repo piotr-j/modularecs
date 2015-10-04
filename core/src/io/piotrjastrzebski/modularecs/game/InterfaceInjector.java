@@ -47,11 +47,9 @@ public class InterfaceInjector implements Injector {
 			this.pojos = pojos;
 		}
 
-		ImmutableBag<Manager> managers;
 		ImmutableBag<BaseSystem> systems;
 		@Override
 		public void initialize(World world) {
-			managers = world.getManagers();
 			systems = world.getSystems();
 		}
 
@@ -70,12 +68,6 @@ public class InterfaceInjector implements Injector {
 					Object value = pojos.get(key);
 					if (value == null) {
 						Class<?> cType = cachedField.field.getType();
-						for (Manager manager : managers) {
-							if (cType.isAssignableFrom(manager.getClass())) {
-								pojos.put(key, manager);
-								return manager;
-							}
-						}
 						for (BaseSystem system : systems) {
 							if (cType.isAssignableFrom(system.getClass())) {
 								pojos.put(key, system);

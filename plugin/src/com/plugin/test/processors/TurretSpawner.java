@@ -15,13 +15,12 @@ import java.io.InputStream;
  * Created by PiotrJ on 25/09/15.
  */
 @Wire
-public class TurretSpawner extends EntitySystem {
+public class TurretSpawner extends BaseEntitySystem {
 	protected ComponentMapper<TurretRef> mTurretRef;
 	protected ComponentMapper<Transform> mTransform;
 
 	public TurretSpawner () {
 		super(Aspect.all(Player.class, Transform.class, Bounds.class));
-		setPassive(true);
 	}
 
 	@Override protected void inserted (int entityId) {
@@ -36,8 +35,7 @@ public class TurretSpawner extends EntitySystem {
 		edit.create(DebugTint.class).setColor(0, 1, 0);
 
 		edit.create(AssetRef.class).setPath("turret.png");
-
-		world.getEntity(entityId).edit().create(TurretRef.class).ref(turret.id);
+		mTurretRef.create(entityId).ref(turret.getId());
 	}
 
 	@Override protected void processSystem () {
@@ -48,6 +46,6 @@ public class TurretSpawner extends EntitySystem {
 		TurretRef turretRef = mTurretRef.getSafe(entityId);
 		if (turretRef == null) return;
 		if (turretRef.turret < 0) return;
-		world.deleteEntity(turretRef.turret);
+		world.delete(turretRef.turret);
 	}
 }
